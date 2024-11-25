@@ -1,20 +1,20 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 dotenv.config();
 
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: "../admin/build",
+    outDir: '../admin/build',
   },
   server: {
     proxy: {
-      "/api": {
-        target: "http://localhost:3000",
+      '/api': {
+        target: 'http://localhost:3000',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
     hmr: true,
